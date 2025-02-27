@@ -14,14 +14,23 @@ import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
 public class MultiCraft {
+
     public static void main(String[] args) throws IOException, InterruptedException {
 
-        final String url = "https://multicraft.ca/en/brand/subbrands?code=artscrafts";
+        List<Product> products = getProducts("scrapbook");
+
+        System.out.println(products);
+
+    }
+
+    private static List<Product> getProducts(final String categoryId) throws IOException, InterruptedException {
 
         HttpClient httpClient = HttpClient.newHttpClient();
 
-        HttpRequest httpRequest =  HttpRequest.newBuilder()
-                .uri(URI.create(url)).GET().build();
+        HttpRequest httpRequest = HttpRequest.newBuilder()
+                .uri(URI.create("https://multicraft.ca/en/brand/subbrands?code=" + categoryId))
+                .GET()
+                .build();
 
         HttpResponse<String> httpResponse = httpClient.send(httpRequest, HttpResponse.BodyHandlers.ofString());
 
@@ -32,18 +41,19 @@ public class MultiCraft {
         Element ulElement = htmlDocument.selectFirst("#skusCards");
 
         Elements liElements = ulElement.select("li");
+
         List<Product> products = new ArrayList<>();
+
         liElements.forEach(liElement -> {
 
             String code = liElement.selectFirst(".summary-id").text();
 
             String title = liElement.selectFirst(".skuSummary-desc").selectFirst("p").text();
-            System.out.println("Code: " + code + " Product: " + title);
 
             products.add(new Product(code, title));
+
         });
-
-
+        return products;
     }
 
 }

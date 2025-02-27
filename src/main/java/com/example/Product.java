@@ -5,7 +5,6 @@ public class Product {
     String code;
 
     Product(String title, String code) {
-
         this.title = title;
         this.code = code;
     }
