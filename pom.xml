@@ -6,7 +6,7 @@
 
     <groupId>com.example</groupId>
     <artifactId>jsoup-selenium</artifactId>
-    <version>1.1.0</version>
+    <version>1.0.0</version>
     <packaging>jar</packaging>
 
     <properties>
@@ -26,14 +26,13 @@
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-java</artifactId>
-            <version>4.29.0</version> <!-- Use the latest stable version -->
+            <version>4.29.0</version>
         </dependency>
 
-        <!-- WebDriverManager (automatically downloads drivers) -->
         <dependency>
             <groupId>io.github.bonigarcia</groupId>
             <artifactId>webdrivermanager</artifactId>
-            <version>5.9.1</version>
+            <version>5.8.0</version>
         </dependency>
     </dependencies>
 
