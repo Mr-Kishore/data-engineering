@@ -1,5 +1,7 @@
+package com.example;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
+
 
 public class JsoupExample {
     public static void main(String[] args) {
