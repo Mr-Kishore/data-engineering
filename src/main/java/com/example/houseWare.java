@@ -17,6 +17,11 @@ public class houseWare {
     public static void main(String[] args) throws IOException, InterruptedException {
         String categoryId = "glassware";
 
+        getProducts(categoryId);
+
+    }
+
+    private static List<Product> getProducts(String categoryId) throws IOException, InterruptedException {
         HttpClient httpClient = HttpClient.newHttpClient();
 
         HttpRequest httpRequest = HttpRequest.newBuilder()
@@ -47,5 +52,6 @@ public class houseWare {
                 count++;
             }
         }
+        return products;
     }
 }
