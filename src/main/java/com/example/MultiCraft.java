@@ -1,6 +1,5 @@
 package com.example;
 import java.io.IOException;
-import java.lang.annotation.ElementType;
 import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
@@ -8,14 +7,12 @@ import java.net.http.HttpResponse;
 import java.util.ArrayList;
 import java.util.List;
 
-import jdk.jfr.Category;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
 public class MultiCraft {
-
 
     public static void main(String[] args) throws IOException, InterruptedException {
         getCategories().forEach(categoryId -> {
